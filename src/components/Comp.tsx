@@ -1,5 +1,7 @@
 import React, {FC, useEffect, useState } from "react";
 import DatePicker from "react-date-picker";
+import DropdownList from "react-widgets/DropdownList";
+import "react-widgets/styles.css";
 import "./Comp.css";
 
 interface Ifila {
@@ -13,6 +15,8 @@ interface Ifila {
 const Comp: FC = () => {
     var[datos, setData] = useState<any>([
         {cantidad: 5000, nombre: "Bruno", proyecto: "Viajes espaciales"},
+        {cantidad: 2000, nombre: "Alberto", proyecto: "Profesor"},
+        {cantidad: 3000, nombre: "Bru", proyecto: "Marketing"},
     ]);
     
     const [aux1, setAux1] = useState<boolean>(false);
@@ -59,7 +63,16 @@ const Comp: FC = () => {
                             <div className="fila">
                                 <div className="fi">{fila.cantidad}</div>
                                 <div className="fi">{fila.nombre}</div>
-                                <div className="fi">{fila.proyecto}</div>
+                                <div className="fi">
+                                    <DropdownList
+                                       defaultValue={fila.proyecto}
+                                       data={[
+                                           "Viajes espaciaales",
+                                           "Profesor",
+                                           "Marketing",
+                                       ]}
+                                       />
+                                </div>
                                 <div className="fi">
                                     <DatePicker
                                        onChange={setStartDate}
