@@ -1,0 +1,18 @@
+.fila{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-evenly;
+    border: 2px;
+}
+
+
+#firstfila{
+    display: flex;
+    flex-direction: row;
+}
+.n{
+    display: flex;
+    flex-direction: row;
+    margin-left: 220px;
+    border: 2px;
+}
