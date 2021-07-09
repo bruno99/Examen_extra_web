@@ -1,5 +1,5 @@
 *IMPORTANTE INSTALAR*
-npm install react-date-picker
+npm install react-date-picker y npm install react-widgets --save
 
 # Getting Started with Create React App
 
