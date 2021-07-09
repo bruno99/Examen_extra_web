@@ -1,42 +1,20 @@
 import React, {FC, useEffect, useState } from "react";
+import DatePicker from "react-date-picker";
 import "./Comp.css";
 
 interface Ifila {
     cantidad: string; 
     nombre: string;
     proyecto: string;
-    vencimiento: string;
+    vencimiento: Date;
 
 }
-//LISTA DESPLEGABLE DE PROYECTOS
-/*
-<select value={this.state.value} onChange={this.handleChange}>
-            <option value="pro1">Programacion</option>
-            <option value="pro2">Diseño</option>
-            <option value="pro3">Marketing</option>
-            <option value="pro4">Venta</option>
-          </select>
-*/
 
-//CALENDARIO ELEGIR FECHA
-/*
-<form className={classes.container} noValidate>
-      <TextField
-        id="date"
-        type="date"
-        defaultValue="2021-10-20"
-        className={classes.textField}
-        InputLabelProps={{
-          shrink: true,
-        }}
-      />
-    </form>
-    */
 const Comp: FC = () => {
     var[datos, setData] = useState<any>([
-        {cantidad: 5000, nombre: "Bruno", proyecto: "Viajes espaciales", vencimiento: "20/10/2021"},
+        {cantidad: 5000, nombre: "Bruno", proyecto: "Viajes espaciales"},
     ]);
-    var [data2, setData2] = useState <any>();
+    
     const [aux1, setAux1] = useState<boolean>(false);
     const [aux2, setAux2] = useState<boolean>(false);
     const [aux3, setAux3] = useState<boolean>(false);
@@ -45,6 +23,7 @@ const Comp: FC = () => {
     const [nomb, setNomb] = useState<string>("");
     const [pro, setPro] = useState<string>("");
     const [ven, setVen] = useState<string>("");
+    const [startDate, setStartDate] = useState(new Date());
     var datosAux = [];
 
     function add(cant: string, nomb: string, pro: string, ven: string){
@@ -81,7 +60,11 @@ const Comp: FC = () => {
                                 <div className="fi">{fila.cantidad}</div>
                                 <div className="fi">{fila.nombre}</div>
                                 <div className="fi">{fila.proyecto}</div>
-                                <div className="fi">{fila.vencimiento}</div>
+                                <div className="fi">
+                                    <DatePicker
+                                       onChange={setStartDate}
+                                       value={startDate}/>
+                                </div>
                                 <button
                                    onClick={(e) =>{
                                        erase(index);
